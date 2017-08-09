@@ -39,7 +39,7 @@ class Launcher():
         self.pathicon = os.getcwd() + '/staging_x64/Albion-Online_Data/Resources/UnityPlayer.png'
         self.type = 'Application'
         self.encoding = 'UTF-8'
-        self.name = 'Albion Online'
+        self.name = 'AlbionOnline'
         self.genericname = 'genericname'
         self.comment = 'Albion Online est un jeu en ligne'
         self.execapp = './' + self.libsdl + ' ' + os.getcwd() + '/Albion-Online'
@@ -47,7 +47,7 @@ class Launcher():
         # Exemple: Categories=Application;Game;ArcadeGame
         self.categories = 'Application;Software'
 
-    def add_launcher_linux():
+    def add_launcher_linux(self):
         try:
             with open('/usr/share/applications/' + self.name + '.desktop', "w") as launcher:
                 launcher.write("[Desktop Entry]\nType=" +
@@ -71,9 +71,11 @@ class main():
         if VerifUser().where_am_i() == True:
             print("It' Ok!")
             print("You are Superuser?")
+
             if VerifUser().userroot() == "root":
                 print("It's Ok")
-                Launcher().add_launcher_linux()
+                config = Launcher()
+                config.add_launcher_linux()
             else:
                 print("It's not Ok, you are not superuser")
         else:
