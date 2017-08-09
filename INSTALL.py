@@ -35,14 +35,14 @@ class VerifUser():
 
 class Launcher():
     def __init__(self):
-        self.libsdl = 'LD_PRELOAD=~/.steam/ubuntu12_32/steam-runtime/amd64/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0'
+        self.libsdl = 'LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0'
         self.pathicon = os.getcwd() + '/staging_x64/Albion-Online_Data/Resources/UnityPlayer.png'
         self.type = 'Application'
         self.encoding = 'UTF-8'
         self.name = 'AlbionOnline'
         self.genericname = 'genericname'
         self.comment = 'Albion Online est un jeu en ligne'
-        self.execapp = './' + self.libsdl + ' ' + os.getcwd() + '/Albion-Online'
+        self.execapp = self.libsdl + ' ' + os.getcwd() + '/Albion-Online'
         self.startupnotify = False
         # Exemple: Categories=Application;Game;ArcadeGame
         self.categories = 'Application;Software'
